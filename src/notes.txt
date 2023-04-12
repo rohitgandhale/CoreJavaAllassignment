@@ -1,0 +1,824 @@
+Binary/Machine language [Low level Language]:
+- Binary Number system[ only 2 digits 0 and 1] base 2
+- problem with the binary is code is error-prone and difficult understand, write, debug
+- it takes a lot of time to write code
+- it will be expensive software
+- extensibility is hard
+- it is not user-friendly
+- we have to write a lot of code for simple requirements
+
+#Asembly language :
+- English like words, mnemonics e.g ADD NUM1, NUM2
+- Translator or assembler will translate the english code in binary.
+
+
+#High level programming language
+- C,C++, C#, Java
+- easy to understand for the developer.
+
+Computer : Compute[Process, Calculate]
+
+- What is Java?
+    -  it is high level programming language.
+
+- Language is the medium for the communication.
+- Every language has set of rules, grammar rules , set of characters,
+
+- programming is nothing but set of instructions given to computer.
+
+* Platform:
+- It is an environment which lets you execute the softwares.
+- Hardware platform: Machine
+- software platform : OS [Windows, mac, linux]
+Why Java?
+- Simple: a lot of complex concepts from C, C++ are removed
+- secure: no direct to access to memory locations, provided built-in security managers
+- platform independent
+- Write Code Once Run Anywhere[WORA]
+    App.java ---> JavaC --> Byte code .class ---> JVM --> Binary --> OS
+- Multithreaded: running multiple blocks of code at the same time.
+- high in performance : Multithreading, JIT[Just in Time Compiler]
+- Robust : Best in class exception, error handling, memory handling.
+- Dynamic : applications will be able to adapt
+- Object oriented : In java, everything is represented with help of class and object
+- portable
+
+# JDK, JRE, JVM
+Java Development Kit :
+- it is a software. [oracle.com]
+-it contains java compiler, profiler, debugger,
+- some libraries
+- Java Runtime Environment/Engine
+    - JRE contains Java Virtual Machine
+- we can use JDK for writing, compiling, debugging, executing the java applications
+- JDK will be used by developers.
+- We need JRE for execution which will be used end customer.
+
+# Steps to write to first java program
+Assumptions:
+    - we have machine with operating system.
+
+Step 1: Download and install JDK.[oracle.com]
+Step 2: Set path.
+        - it is optional if we are using IDE as IDE will itself set the temporary path
+        - Command prompt/ powershell/ terminal :
+            - These are the software present in the  OS which will help to interact with the OS.
+            - These are command based software to interact with OS
+          - If we want to give command[ compile java program with the help java compiler]
+            to the OS with the help of command prompt/terminal
+
+        To let Operating system know where is the java compiler, debugger, executor, we set the path
+        - Path setting is nothing but, location of the java binaries given to OS.
+
+Step 3: Write java code in a notepad and save the file with .java extension
+step 4: compile the java file with the help of java compiler
+        javac JavaFileName.java
+
+step 5: execute the java app
+        java ClassName
+
+
+------------------------------------------------------------------
+
+# How java works?
+App.java --> javac App.java --> generates the .class containing byte code--> java App
+
+
+- Variable : It is name given to a memory location address.
+- Uses of variable: It is used to store data inside the memory or access the existing data
+
+# Data type :
+- It specifies three things
+    - type of data that variable will hold
+    - size of the memory location. memory requirement
+    - It specifies range of allowed values that can be stored inside the variable
+* Types of data types available in java:
+1. byte - size: 1 byte, range: -128 to 127
+2. short - size: 2 bytes, range: -32768 to 32767
+3. int - size 4 bytes
+4. long  - size 8 bytes
+5. float - 4 bytes
+6. double - 8 bytes
+7. char - 2 bytes
+8. boolean - 1 byte
+
+How to create a variable?
+- dataType variableName = value;
+ e.g. int age = 50; // age is a variable, int is a data type, 50 is the value
+
+# Type casting for primitives:
+Type casting can be done for primitive as well as non-primitives.
+
+converting one data type value into another data type value.
+* Explicit typecasting - When we try to assign a bigger data type value to a smaller data type value then we have to perform explicit type casting
+    int intValue = 100;
+    byte byteValue = intValue;// we get compile time error
+    - We tell to the compiler we are fine with the data loss.
+
+    byte byteValue = (byte) intValue; // explicit type casting
+    - Developer is responsible for explicit type-casting
+
+* Implicit Type-casting :
+    - when we try to assign small data type value to bigger data type value
+    - Java compiler is responsible to perform implicit typecasting
+    - There won't be any data loss in case of implicit type-casting.
+          short shortValue = 100;
+          int a = shortValue; // implicit type casting is done by the java compiler
+
+
+explicit type casting --> upcasting, narrowing
+implicit type casting -->  downcasting, widing
+
+Autoboxing : converting primitive value into non-primitive
+Unboxing : converting non-primitive value into primitive
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Operators
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+1. Arithmetic operators : +, -, *, /, %
+    - + operator will do mathematical addition when both the operands are of number type
+2. String concatenation operator : +
+    - it is the only operator which is overloaded in java.[does two jobs]
+    - + will perform string concatenation when one of the operand is String type
+    * expression evaluation will start from left to right
+
+
+#input for arithmetic operator will be number type and output will also be of number type
+
+--- Arithmetic operators are not applicable for boolean
+byte, short, int , char (+,-,*, /, %) byte, short, int , char ---> int
+byte, short, int , char, long (+,-,*, /, %) byte, short, int , char, long ---> long
+byte, short, int , char, long, float (+,-,*, /, %) byte, short, int , char, long,float ---> float
+byte, short, int , char, long, float,double (+,-,*, /, %) byte, short, int , char, long,float, double ---> double
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 3. Comparison Operators : > ,< , >= , <=, ==, !=
+ - These are applicable for number type.
+ - for boolean only == and != is applicable
+
+ output of Comparison operators : boolean
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+4. Assignment operator : =
+we use = operator, to assign the right hand side value to a variable to the left
+left operand must be a variable type otherwise we get compile time error
+right operand can be:
+    1. direct value
+    2. variable
+    3. expression
+    4. function call
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+5.  Logical operators:
+Logical AND: &, &&
+Logical OR: |, ||,
+Logical XOR: ^
+Logical NOT : !
+
+- AND, OR, XOR, NOT these are not keywords available in java.
+
+Pure logical operators : &&, ||
+
+What is the difference between & and &&?
+- & will solve all the conditions and at last will give the result.
+- && will give the result immediatlly after the first false.
+- && is called as short hand, short-circuit operator
+
+! Not operators works on only boolean
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Unary Operators : Operators which works on only operand
+                   !
+Binary Operators : Operators which works on two operands
+                   - +, -, *, /, %, ==, !=, > ,< , >=, <=, &, &&, |, ||, ^
+Ternary Operators : Operators which works on three operands
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+6. Increment / Decrement operators:
+++, --
+These are also called as unary operators
+++ : increment the value by 1
+-- : decrement the value by 1
+Operand in the increment/decrement operation must be a variable otherwise we get CTE
+Pre-increment :
+    - When we use ++ operator before the operand, it is called as pre-increment.
+    - e.g. int a = 1; ++a; SOP(a);//2
+    - In this, we first increment the value by 1 ,and then we assign the value.
+Post-increment :
+    - When we use ++ operator after the operand, it is called as post-increment.
+    - e.g. int a = 1; a++; SOP(a);//2
+    - In this, we first assign the value and then increment the value by 1.
+
+Pre-Decrement :
+    - When we use -- operator before the operand, it is called as pre-decrement.
+    - e.g. int a = 1; --a; SOP(a);//0
+    - In this, we first decrement the value by 1 ,and then we assign the value.
+Post-Decrement :
+    - When we use -- operator after the operand, it is called as post-decrement.
+    - e.g. int a = 1; a--; SOP(a);//0
+    - In this, we first assign the value and then decrement the value by 1.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Bitwise operators:
+& : AND
+|: OR
+^: XOR
+~: Negation
+<<: left shift
+>> : right shift
+>>>: unsigned right shift
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Ternary operator: Which works on three operands
+
+Conditional Operator:
+
+operand1 ? operand2 : operand3
+
+operand1 : condition
+            1. direct value i.e. true or false
+            2. variable of type boolean
+            3. expression which results into boolean
+            4. function call which returns boolean
+Based on the condition, we get output.
+        If the condition is true, code after ? gets executed
+        If the condition is false, code after : gets executed
+
+In conditional operator,
+    input is a boolean value as operand1
+    output will be either operand2 which is followed ? or operand3 which is followed :
+
+
+---------------------------------------------------------------------------------------------------
+Control statements : These are the statements which controls the flow of execution of the program
+- If we do not want sequential execution, then we take help of control statements.
+
+- control statements helps you
+    - select specific code to execute
+    - select specific code to skip the execution
+    - select specific code to repeat the execution
+
+1. Conditional Statements
+    - it helps to select some part of the code to execute or skipping
+    - if-else
+    - switch
+
+2. Looping / Repeat / Iterative statements
+    -  It helps in executing the code repeatedly.
+    - for
+    - while
+    - do-while
+    - for each
+
+3. Transfer statements
+    - It helps in transferring the control from one location to another location
+    - break
+    - continue
+    - return
+---------------------------------------------------------------------------------------------------
+if: it is keyword
+    if(condition){
+        // statements
+    }
+    condition :
+        1. it can be direct boolean value
+        2. it can be expression whose result it boolean e..g (4 >3)
+        3. it can be variable which is of type boolean
+        4. it can be a function call which returns boolean type data.
+        5. if write non-boolean value we get CTE.
+    If the condition is true, the only code inside the {} will be executed
+    If the condition is false, the  code inside the {} will not be executed
+
+- we can write independent if.
+ we use if-else and switch to select some code to either execute or skip it for execution based some value.
+
+ if(true){ execute this}
+ if(flalse){ do not execute this code}
+
+ switch(value){
+    case :
+ }
+  In switch, we compare single value across multiple cases.
+  - doing equality operation
+
+We go with the switch when number of equality operations are more than 3.
+
+value :
+    - allowed values for switch value place : byte, short, int char, Byte, Short, Integer, Character, String, enum
+    - not allowed values : long, float, double, boolean, [Long, Float, Double, Boolean]
+
+switch case lables and value provided in the switch must be of same data type otherwise we get CTE
+_________________________________
+Instance : It is an allocated memory space at runtime in the program.
+
+Class :
+- class is a keyword to create Class[classification]
+- Class is a classification , categorization, grouping
+- it is a plan, structure, template, blueprint, set of guidelines, set of rules to create objects
+- we need class first inorder to create objects.
+- we can create any number of objects with given class.
+- so class will occupy less memory as compared to objects.
+
+why do we need a class?
+- we need class to create objects
+
+How do we create a class?
+e.g. class ClassName {
+    // plan to create objects.
+    }
+
+Object:
+- it is an instance of a class
+- it is a memory space allocated at runtime for class type data.
+- when we say we are creating object, we are actually allocating the memory space at run time
+- Object is also called as instance
+- But every instance need not be an object.
+- Object is nothing but memory allocation
+[6:44 PM, 12/19/2022] Rohit Gandhale: Why do we need object?
+- we need objects to store or represent real life physical or logical entities in the program at runtime
+
+Every object has
+    - state | variables | columns | attributes | data | properties |
+    - behaviour | method | functions | procedure | routine | task | implementation
+
+How do we create an object ?
+e.g. class Student {
+        int rollNumber;
+        String studentName;
+    }
+
+    Student student = new Student();
+
+    // Student : it is a derived data type
+    // student : it is a reference variable which stores address or reference of an object
+    // new : is a keyword to create object
+    // Student(): it is a constructor. It is used to construct  or create object.
+
+    new Student(): It is an object
+
+# As part of the class, we can write different components
+    - variables
+        - local variable
+        - instance variables
+        - static variables
+    - methods
+        - instance method
+        - static method
+    - constructors
+        - default constructors
+        - zero parameterized constructor
+        - parameterized constructor
+    - blocks
+        - instance block
+        - static block
+    - nested classes
+        - inner class i.e. non-static nested class
+        - static nested class
+        - local inner class
+        - anonymous class
+
+
+1. we write java program in file with .java extension
+2. we compile that .java file with java compiler
+3. once .java file is compiled there will a .class file will be generated.
+    - javac App.java
+4. we run the .class file. we specify the class name which has main method
+    - java App
+
+JDK : Java Development Kit
+- JDK helps in writing , compiling and executing the java applications.
+- Developer needs to use JDK
+
+JDK consists of compiler, libraries, JRE.
+JRE consists of JVM
+
+- We use java compiler  for compiling the java files
+- we use JRE in turn JVM for java program execution.
+
+What is the job of JVM?
+- To convert the byte code into machine understandable code.
+
+To execute the app : java ClassName
+
+What is JVM ?
+- Java virtual Machine
+- JVM is abstract machine
+- It is a software which is developed by Java people.
+
+
+when we run the java app,
+- JVM instance will be created, JVM will be started.
+
+Once JVM is started,
+    - ClassLoader: Loads the class into the memory.
+    - Byte Code Verifier : It verifies the byte code from the .class
+    - program is loaded into the different memory compartments.
+        - Memory compartments
+            - HEAP:
+                - It is used to store the java objects
+            - Stack
+                - It is used to store local variables.
+                - it is used the store method execution stack
+            - Class or Method Area
+                - It is used to store static variables
+                - it is used to store class or method structures.
+            - Native method Area
+                - It is used to store the data related to non-java method such C, C++
+            - Native Method Stack Area
+                - It is used to store the data and method execution stack for non-java methods
+            - PC Registers
+                - It is used to store the next execution instruction
+
+        * native method interface:
+            - it is a framework or program to get the methods from native library and load into native method area
+        * native methods : these are non-java code
+        * native library : it is place where non-java code is present.
+        * Java Execution Engine : Converts the code into machine understandable code.
+
+    Java Compilers:
+        - it compiles java source conde into byte code.
+    JIT(Just in time Compilers):
+        - They compile the byte code into the machine understandable code.
+
+-----------------------------------------------------------------------------
+
+Class Components:
+
+1. Local variable:
+- it is used store the data which used to store temporary calculations in the program such
+- it is stored in stack memory area.
+- we create local variables inside the method, constructor, blocks
+- Local variables can't be accessed outside where they have defined.
+- Local variables will get the memory inside the stack memory area.
+- Local variables will get the memory whenever method, constructor or block is called
+- If we don't call the method, local variable will not be created.
+- at the method execution end, all the variables which are local to this method will be deleted.
+
+2. Instance variables:
+What? - variables which are created outside of method, constructor,block at class level are called as instance variables
+Why? - we use instance variables to store object specific information which is independent.
+    e.g. Account details for each customer.
+How? class Product{
+            int productId;
+            String productName;
+        }
+Where?- Instance variables will be stored as part an object inside the heap memory area
+How many times IV gets the memory?
+    - Every time we create object, instance variables will get the memory.
+- Instance variables will be removed once the object is destroyed.
+
+3. Static variables:
+What - It is a variable which is created outside all methods, constructor, blocks at class level with static keyword
+Why - We use static variables to store common data for all the objects
+How many times they get the memory: Static variables will get the memory only once at time of class loading
+when they will get the memory : at the time of class loading
+where they are stored? static variables are stored inside the CLASS or METHOD memory area
+How to access?
+- we access static variables with the help classname
+
+
+#To access instance variables we need object first
+    Syntax: reference.InstanceVariableName
+
+# To access static variables we don't need object. We need class to be loaded in the memory
+    Syntax: ClassName.StaticvariableName
+
+# Local variables are defined or created inside the method and accessed directly without any reference or classname
+    syntax : variableName
+
+
+___________________
+Every object has three things :
+    1. identity
+    2. state / variables / attributes / columns / data / information /
+    3. behaviour / function / task / routine / procedure / implementation / method
+
+What are methods ?
+    - group of statements which are enclosed inside the curly braces which has a name
+    - which returns some value [if no value then we write void]
+    - might accept input[parameters]
+        syntax:
+           access_specifer return_type  methodName(input parameters){
+            // group of statements
+            //return statement optional
+            }
+Why do we need methods?
+- we use methods for code reusability purpose
+
+
+
+class components:
+variables
+    local variable : Tejal
+    instance variable : Rohit sagare
+    static variable : Akash Pawar
+methods
+    instance method : vaishnavi
+    static method : mrugnayani
+constructors
+    default constructor: sandesh
+    zero param constructors : mahesh
+    parameterzed: Yash
+    this keyword:  madhuri
+blocks
+    instance block : Nishant
+    static block: Rohit
+nested classes
+    inner classes: Onkar
+    static nested class : Anirudh
+    local inner class : Saurabh
+    anonymous class: Shivani
+
+------------------------------------------------------------------------------------------------------------------------
+# What is instance block?
+    - It is a block of code written inside the curly braces which does not have
+        - name
+        - parameters
+        - access modifier
+        - return type
+    created at class level outside all other components
+
+# Why we use instance block?
+    - We use instance block for non-initialization activity such as logging, auditing
+        - maintaining the object count.
+
+# How to use instance block?
+- Instance block will always be executed when we create an object
+- We can create object with different constructor still instance block will be called irrespective of which constructor call
+
+* we can write any number of instance blocks,
+    but all the instance blocks will be combined and executed together for every object creation
+
+# What is static block?
+    - It is a block of code written inside the curly braces created with static which does not have
+        - name
+        - parameters
+        - access modifier except static
+        - return type
+    created at class level outside all other components
+
+# Why we use static block?
+    - We use static block for performing one-time activity such as
+        - connection to the database
+        - connection to the file
+        - connection to the server
+        - loading a bigger file in the program
+
+# How to use static block?
+- we create the block as static {}
+-  load the class in the memory
+
+* we can write any number of static blocks,
+    but all the static blocks will be combined and executed together for every object creation
+
+Static block will be executed only once at the time of class loading
+
+_______________________________
+Nested classes : A class defined inside another class
+1. Non-static nested class or Inner class :
+    - A class defined inside another class without static modifier
+    - An inner class can't contain static members.
+2. static nested class
+    - A class defined inside another class with static modifier
+    - It can contain both static and non-static members
+
+3. Local Inner class
+    - A class defined inside the method without any modifier
+    - A Local Inner class can't contain static members.
+
+4. Anonymous [abstraction]
+_______________________________
+
+OOPS:
+1. Encapsulation
+- what it is ?
+    - it is a process of binding data members and methods together
+- why to use this?
+    - to achieve data security
+    - to get better control on the data
+- how to achieve/ implement encapsulation in Java?
+    - we make data members private so that it cannot be accessed outside the class directly
+
+e.g. class Employee{
+        private int employeeId;
+        private String employeeName;
+
+        //public getters and setters method
+
+        public int getEmployeeId(){
+            return this.employeeId;
+        }
+
+        public String getEmployeeName(){
+            return this.employeeName;
+        }
+
+        public void setEmployeeId(int employeeId){
+             this.employeeId = employeeId;
+        }
+
+        public void setEmployeeName(String employeeName){
+             this.employeeName = employeeName;
+        }
+
+    }
+
+#2. Inheritance
+# What is it ?
+- It is process of inheriting/acquiring the
+    non-private, non-static & non-final members from one object into another object
+
+* Super/ Parent/ Base class :
+    - It is the class where we define the common methods and data.
+
+* Child / Sub / Derived class
+    - It is the class which inherits the Parent class
+
+
+# Inheritance represents which type of relationship?
+    - It represents IS-A type of relationship
+    - we read Child IS-A of type Parent
+
+# Why to use Inheritance?
+    - to reuse the code
+    - to avoid code duplication
+
+# How to use or implement inheritance in Java?
+    - we can use extends keyword to implement inheritance through classes
+    - we define a class with common data and methods
+    - we define another class which extends Parent class
+
+e.g. class Loan {
+        //common data
+        //common methods
+    }
+    class PersonalLoan extends Loan {
+
+    }
+
+# what are the type of inheritance ?
+1. Single Level inheritance
+    - In this one class extends only one another clas
+    - It is supported through classes
+    - e.g. class A {}
+        class B extends A {}
+
+
+2. Multi-Level inheritance
+     - In this one class extends only one another clas & that class extends another class & so on
+     - It is supported through classes
+      - e.g. class A {}
+            class B extends A {}
+            class C extends B {}
+            class D extends C {}
+
+3. Cyclic inheritance
+    - When one class tries to extend itself
+    - It is not support through classes
+    - If we try to do it gives CTE
+    e.g. class A extends A {}
+
+4. Multiple inheritance
+    - when one class extends more than one class then it is called as multiple inheritance.
+    - It is not supported through classes
+    - It is supported through interfaces
+    - If we try to do it with classes it gives CTE
+    - e.g.
+            class A {}
+            class B {}
+            class C extends A, B {} //CTE
+** What is diamond problem / ambiguity?
+** Why multiple inheritance is not supported through classes?
+    -- When one class tries to extend more than class,
+        if both the parents have the same set of members
+        then child class will get confuse which member to access
+    - So to avoid this confusion, ambiguity, multiple inheritance is not supported through classes in java
+
+
+5. Hybrid inheritance
+    - when we combine multiple inheritance with any other type
+    - it is not supported through classes.
+
+6. Hierarchical inheritance
+    -
+--------------------------------------------------------------------------------------------------------
+
+- Every constructor in java there is a first line in the constructor added implicitly
+    that is call to the parent class constructor.
+     --- super();
+--------------------------------------------------------------------------------------------------------
+OOPS 3: Polymorphism:
+Poly : many
+morph : forms, methods, procedure, tasks, behaviour, function,
+
+- What it is?
+    - It is an ability of an object to change its behaviour either at compile time or runtime.
+
+- what do you mean by behaviour change?
+    -  object can change the behavior either at Compile time or run time.
+    - it means having multiple methods with the same name but having with different implementation
+
+
+* When object changes it behaviour at compile time, it is called as
+    - compile time polymorphism
+    - static binding
+    - early binding
+    * call to the method is decided at compile time.
+
+    Q. how to achieve compile time polymorphism?
+    Ans. Method Overloading
+
+* When object changes its behaviour at run time, it is called as
+    - run time polymorphism
+    - dynamic binding
+    - late binding
+    * call to the method is decided at run time.
+
+    Q. how to achieve run time polymorphism?
+        Ans. Method Overriding
+
+* What do you mean binding?
+- Binding is nothing but deciding method call binding
+- we decide which method will be called while executing the application.
+
+--------------------------------------------------------------------------------------------------------
+
+## What is method overloading?
+-- Defining multiple methods with the
+    - same name
+    - different signature
+        - either different type of parameters
+        - or different number of parameters.
+
+    - either in the same class
+    - or in the child class
+
+- in method overloading, call to the method is decided at compile time.
+- Method return type will not be considered in method overloading
+
+* We can define the method in the parent class
+    and same method in the child class with different signature
+    it is called as method overloading
+
+- Method overloading can happen in the same class as well as child class
+- we can overload
+    - private methods
+    - static methods
+    - final methods
+--------------------------------------------------------------------------------------------------------
+
+Method overriding:
+    - Defining a method in the child class with the
+        - same name
+        - same signature
+        - same return type
+        as of parent class method is called as method overriding
+
+- Method return type will be considered in case of Method overriding.
+- we cannot override
+    - private methods
+    - static methods
+    - final methods
+
+- For the access specifier we can do promotion not demotion
+e.g. Parent class  --->    Child Class
+    //default --->   //default, protected, public
+    //protected ---> //protected, public
+    //public ---->    //public
+
+--------------------------------------------------------------------------------------------------------
+OOPS:4 Abstraction
+
+- It is  a process of hiding the implementation details and just exposing the functionality.
+- abstract means INCOMPLETE
+- final means COMPLETE
+- we cannot use abstract and final together since they are opposite of each other.
+
+# Concrete Method: A method which has implementation or curly brace
+        e.g. class A {
+                //concrete method
+                void m1() {
+                    //method body
+                }
+            }
+
+# Concrete class: A class which can contain only concrete methods without any abstract modifier.
+
+# Abstract method :
+  - A method which is created without method body/curly braces with abstract keyword modifier
+        e.g. abstract int add(int a, int b);
+  - abstract methods cannot be defined inside the concrete class
+  - we can define abstract methods inside the abstract class or interface.
+
+# Abstract class :
+   - A class which is created with abstract keyword modifier
+   e.g.     abstract class ClassName {
+
+            }
+   - We can create empty abstract class.
+   - It is not mandatory to write abstract methods inside the abstract class.
+   - when one concrete class extends another abstract class,
+       - then with the inheritance, child class gets the abstract methods.
+       - we get compile time error. To resolve this error
+        - either make the child class abstract
+        - or override the abstract methods in the child class.
+
+** Abstract class can contain
+    - everything from concrete class
+    - abstract methods
